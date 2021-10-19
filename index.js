@@ -10,10 +10,6 @@ mongoose.connect('mongodb://localhost:27017/express',()=>{
     console.log('connected')
 });
 
-
-
-
-
 // adding the middlewares
 app.use(express.json())
 
