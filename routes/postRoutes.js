@@ -55,6 +55,7 @@ Router.get('/:title',async (req,res)=>{
     } catch(error){
       return res.json({ message: error });
     }
+  })
 
 //Create the post
 Router.post('/',async (req, res) => {
