@@ -43,7 +43,19 @@ Router.get('/:postId', async (req, res) => {
     } catch (error) {
       return res.json({ message: error });
     }
-}) 
+})
+//Search page
+Router.get('/:title',async (req,res)=>{
+    try{
+        const userid = req.user.id
+        const title = req.params.title
+        const posts = await Post.find({title:title,user_id:userid});
+        if(!posts.length){ throw `There is no result related to ${title}`}
+        return res.json(posts)
+    } catch(error){
+      return res.json({ message: error });
+    }
+
 //Create the post
 Router.post('/',async (req, res) => {
     const post = new Post({
